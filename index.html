@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leveling Up! | Vue.JS</title>
+    <style>
+        .textarea {
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test">
+        <!-- directive v-model -->
+        <input type="text" v-model="message">
+        <br>
+        <p>{{ message }}</p>
+
+        <textarea cols="30" rows="10" v-model="textArea"></textarea>
+        <p class="textarea">{{ textArea }}</p>
+
+        <input type="radio" value="radio1" v-model="radioButton"> Radio 1
+        <input type="radio" value="radio2" v-model="radioButton"> Radio 2
+        <p>Your choice is : {{ radioButton }}</p>
+
+        <label for="">Choose Programming Language</label><br>
+        <select v-model="selectPrg">
+            <option value="" disabled>Choose Programming Language</option>
+            <option value="Java">Java</option>
+            <option value="Javascript">Javascript</option>
+            <option value="PHP">PHP</option>
+            <option value="Python">Python</option>
+        </select>
+        <p>Your Favorite Programming Language is : {{ selectPrg }}</p>
+
+        <input type="checkbox" value="Spiderman" v-model="favoritMovie"> Spiderman
+        <input type="checkbox" value="Batman" v-model="favoritMovie"> Batman
+        <input type="checkbox" value="Avenger" v-model="favoritMovie"> Avenger
+        <input type="checkbox" value="Justice Language" v-model="favoritMovie"> Justice Language
+        <p>Your Favorite Movie is : {{ favoritMovie }}</p>
+        <p>List Movie :</p>
+        <ul>
+            <li v-for="(fm, index) in favoritMovie">{{ fm }} <button v-on:click="removeMovie(index)">x</button></li>
+        </ul>
+        <label for="">Add New Movie to list</label><br>
+        <input type="text" v-model="addMovie">
+        <button v-on:click="saveMovie">Add</button>
+
+        <!-- v-if -->
+        <div v-if="show == true">
+            <p>Kondisi : {{ message1 }} </p>
+        </div>
+        <div v-else="show">
+            {{ message2 }}
+        </div>
+        <!-- computed -->
+        <div>
+            <p>Resutlt from {{ int1 }} + {{ int2 }} = {{ sum }}</p>
+        </div>
+        <!-- methods -->
+        <div>
+            <p>Resutlt from {{ int1 }} - {{ int2 }} = {{ result }}</p>
+            <button v-on:click="minProcess">Min</button>
+        </div>
+        <br>
+        <!-- watch & v-model harus sama dengan data prop dan watch prop-->
+        <div>
+            <label for="kilometer">kilometer</label>
+            <input type="number" v-model="kilometers">
+            <label for="meter">meter</label>
+            <input type="number" v-model="meters">
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="/js/vue.js"></script>
+<script src="/js/app.js"></script>
