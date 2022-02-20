@@ -14,6 +14,16 @@
 
 <body>
     <div id="test">
+        <greeting></greeting>
+        <button-counter></button-counter>
+        <br>
+        <br>
+
+        <!-- :post is directiv binding in blogpost component -->
+        <blog-post v-for="post in posts" :key="post.id" :post="post">
+        </blog-post>
+        <br>
+
         <!-- directive v-model -->
         <input type="text" v-model="message">
         <br>
